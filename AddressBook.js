@@ -107,8 +107,8 @@ class Contact {
 try {
     var addressBook = new Array();
     console.log("<<<<<Welcome to AddressBook Application>>>>>");
-    addressBook.push(new Contact("Pratik", "Chaudhari", "Shriram colony", "Faizpur", "Maharastra", "425503", "9657586962", "pratikc1020@gmail.com"));
-    addressBook.push(new Contact("Patrick", "Bateman", "55 West 81st Street, Upper West Side", "NYC", "NY", 10023, 1145658777, "Sakha2111@gmail.com"));
+    addressBook.push(new Contact("Dwight", "Schrute", "1725 Slough Avenue", "Scranton", "PA", 100663, 9657586962, "arm@dundermifflin.com"));
+    addressBook.push(new Contact("Patrick", "Bateman", "55 West 81st Street, Upper West Side", "NYC", "NY", 10023, 1145658777, "pat@priceNprice.com"));
     addressBook.forEach((contact) => console.log(contact.toString()));
 }
 catch (e) {
