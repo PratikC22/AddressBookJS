@@ -186,6 +186,17 @@ try {
     contactByCityArray.forEach(contact => console.log(contact.toString()))
     let contactByStateArray = addressBook.filter(contact => contact.state == contactState).map(contact => contact);
     contactByStateArray.forEach(contact => console.log(contact.toString()));
+
+    function countContacts(counter, contact) {
+        if (contact !== null)
+            counter++;
+        return counter;
+    }
+    let countByCity = addressBook.filter(contact => contact.city !== null).map(contact => contact).reduce(countContacts, 0);
+    console.log("Count by City " + countByCity);
+    let countByState = addressBook.filter(contact => contact.state !== null).map(contact => contact).reduce(countContacts, 0);
+    console.log("Count by City " + countByState);
+
 } catch (e) {
     console.log('Regex test is fail \n' + e);
 }
