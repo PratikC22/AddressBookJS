@@ -109,7 +109,7 @@ try {
     console.log("<<<<<Welcome to AddressBook Application>>>>>");
 
     addressBook.push(new Contact("Dwight", "Schrute", "1725 Slough Avenue", "Scranton", "PA", 100663, 9657586962, "arm@dundermifflin.com"));
-    addressBook.push(new Contact("Patrick", "Bateman", "55 West 81st Street, Upper West Side", "NYC", "NY", 10023, 1145658777, "pat@priceNprice.com"));
+    addressBook.push(new Contact("Patrick", "Bateman", "55 West 81st Street, Upper West Side", "NYC", "NY", 10023, 9845658777, "pat@priceNprice.com"));
 
     console.log('contacts before being updated \n');
     addressBook.forEach((contact) => console.log(contact.toString()));
@@ -130,6 +130,28 @@ try {
     }
     addressBook.reduce(findNumberOfContacts, 0);
     console.log(' Total number of contacts in array  : ' + count);
+
+    let newContact = new Contact("Jim", 'Halpert', "1245 Burrough Avenue", 'Scranton', 'PA', "450 678", "91 9878415244", "jim@dundermifflin.com");
+
+
+    function checkDuplicates(count, contact) {
+        if (contact != null)
+            count++;
+        return count;
+    }
+
+    function addContact() {
+        if (countDuplicate == 0) addressBook.push(newContact);
+        else console.log("\nContact not added in the address book. Duplicate Entry found.\n");
+    }
+
+    let countDuplicate = addressBook.filter(contact => contact.firstName == newContact.firstName)
+        .map(contact => contact).reduce(checkDuplicates, 0);
+
+    addContact();
+
+    console.log('Checking duplicate while adding new contact in the address book ');
+    addressBook.forEach((contact) => console.log(contact.toString()));
 
 } catch (e) {
     console.log('Regex test is fail \n' + e);
