@@ -179,6 +179,13 @@ try {
     let searchState = 'PA';
     let serchByState = addressBook.filter(contact => contact.state == searchState).map(contact => contact).reduce(countPersonByCity, 0);
     searchByState();
+
+    let contactCity = "NYC";
+    let contactState = "NY";
+    let contactByCityArray = addressBook.filter(contact => contact.city == contactCity).map(contact => contact);
+    contactByCityArray.forEach(contact => console.log(contact.toString()))
+    let contactByStateArray = addressBook.filter(contact => contact.state == contactState).map(contact => contact);
+    contactByStateArray.forEach(contact => console.log(contact.toString()));
 } catch (e) {
     console.log('Regex test is fail \n' + e);
 }
