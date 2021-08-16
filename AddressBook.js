@@ -9,15 +9,15 @@ class Contact {
     mobileNumber;
     email;
 
-    constructor(firstName, lastName, address, city, state, zip, mobileNumber, email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-        this.mobileNumber = mobileNumber;
-        this.email = email;
+    constructor(params) {
+        this.firstName = params[0];
+        this.lastName = params[1];
+        this.address = params[2];
+        this.city = params[3];
+        this.state = params[4];
+        this.zip = params[5];
+        this.mobileNumber = params[6];
+        this.email = params[7];
     }
 
     toString() {
@@ -153,6 +153,32 @@ try {
     console.log('Checking duplicate while adding new contact in the address book ');
     addressBook.forEach((contact) => console.log(contact.toString()));
 
+    function countPersonByCity(countByCity, contact) {
+        if (contact != null)
+            countByCity++;
+        return countByCity;
+    }
+
+    function searchByCity() {
+        if (searchByCity == 0) console.log('Search not found by city name ' + searchCity);
+        else console.log("\n" + searchByCity + ' Search found by city name ' + searchCity);
+    }
+    let searchCity = 'Scranton';
+    searchByCity = addressBook.filter(contact => contact.city == searchCity).map(contact => contact).reduce(countPersonByCity, 0);
+    searchByCity();
+
+    function countPersonByCity(countByState, contact) {
+        if (contact != null)
+            countByState++;
+        return countByState;
+    }
+    function searchByState() {
+        if (serchByState == 0) console.log('Search not found by state name ' + searchState);
+        else console.log('\n ' + serchByState + ' Search found by state name ' + searchState);
+    }
+    let searchState = 'PA';
+    let serchByState = addressBook.filter(contact => contact.state == searchState).map(contact => contact).reduce(countPersonByCity, 0);
+    searchByState();
 } catch (e) {
     console.log('Regex test is fail \n' + e);
 }
