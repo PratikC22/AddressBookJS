@@ -197,6 +197,15 @@ try {
     let countByState = addressBook.filter(contact => contact.state !== null).map(contact => contact).reduce(countContacts, 0);
     console.log("Count by City " + countByState);
 
+    function sortByName() {
+        for (let details in detailsArray) {
+            detailsArray.sort(details.firstName);
+        }
+        detailsArray.forEach(contact => console.log(contact.toString()));
+    }
+    console.log("Sorting by firstName");
+    sortByName();
+
 } catch (e) {
     console.log('Regex test is fail \n' + e);
 }
