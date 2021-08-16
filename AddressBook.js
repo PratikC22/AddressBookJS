@@ -122,6 +122,15 @@ try {
     addressBook.slice(index, 1);
     console.log("contact after deletted ");
     addressBook.forEach((contact) => console.log(contact.toString()));
+
+    let count = 0;
+    function findNumberOfContacts(contact) {
+        if (contact != null)
+            return count++;
+    }
+    addressBook.reduce(findNumberOfContacts, 0);
+    console.log(' Total number of contacts in array  : ' + count);
+
 } catch (e) {
     console.log('Regex test is fail \n' + e);
 }
