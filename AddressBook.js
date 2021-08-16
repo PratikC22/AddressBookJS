@@ -109,8 +109,11 @@ try {
     console.log("<<<<<Welcome to AddressBook Application>>>>>");
     addressBook.push(new Contact("Dwight", "Schrute", "1725 Slough Avenue", "Scranton", "PA", 100663, 9657586962, "arm@dundermifflin.com"));
     addressBook.push(new Contact("Patrick", "Bateman", "55 West 81st Street, Upper West Side", "NYC", "NY", 10023, 1145658777, "pat@priceNprice.com"));
+    console.log('contacts before being updated \n');
     addressBook.forEach((contact) => console.log(contact.toString()));
-}
-catch (e) {
+    addressBook.filter(contact => contact.firstName == 'Patrick').map(contact => contact.firstName = 'Wilson');
+    console.log('contacts after being updated \n');
+    addressBook.forEach((contact) => console.log(contact.toString()));
+} catch (e) {
     console.log('Regex test is fail \n' + e);
 }
